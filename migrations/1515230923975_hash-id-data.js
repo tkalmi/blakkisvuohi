@@ -19,31 +19,39 @@
 'use strict';
 
 exports.up = (pgm) => {
-    pgm.addColumn('users', 'userid', {
-        type: 'text'
+    pgm.addColumns('users', {
+        userid: {
+            type: 'text',
+            notNull: true,
+            unique: true
+        }
     });
-    pgm.addColumn('users_drinks', 'userid', {
-        type: 'text'
+    pgm.addColumns('users_drinks', {
+        userid: {
+            type: 'text',
+            notNull: true,
+            unique: true
+        }
     });
-    pgm.addColumn('users_in_groups', 'userid', {
-        type: 'text'
+    pgm.addColumns('users_in_groups', {
+        userid: {
+            type: 'text',
+            notNull: true,
+            unique: true
+        }
     });
-    pgm.addColumn('users_in_groups', 'groupid', {
-        type: 'text'
+    pgm.addColumns('users_in_groups', {
+        groupid: {
+            type: 'text',
+            notNull: true,
+            unique: true
+        }
     });
 };
 
 exports.down = (pgm) => {
-    pgm.dropColumn('users', 'userid', {
-        type: 'int'
-    });
-    pgm.dropColumn('users_drinks', 'userid', {
-        type: 'int'
-    });
-    pgm.dropColumn('users_in_groups', 'userid', {
-        type: 'int'
-    });
-    pgm.dropColumn('users_in_groups', 'groupid', {
-        type: 'bigint'
-    });
+    pgm.dropColumns('users', ['userid']);
+    pgm.dropColumns('users_drinks', ['userid']);
+    pgm.dropColumns('users_in_groups', ['userid']);
+    pgm.dropColumns('users_in_groups', ['groupid']);
 };
