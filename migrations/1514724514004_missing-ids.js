@@ -26,7 +26,6 @@ exports.up = (pgm) => {
             unique: true
         }
     });
-    pgm.dropConstraint('users_drinks', 'users_drinks_pkey');
 };
 
 exports.down = (pgm) => {
